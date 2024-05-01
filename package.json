@@ -1,0 +1,53 @@
+{
+    "name": "format-template",
+    "version": "0.0.1",
+    "description": "A format config template(husky, lint-staged, eslint, prettier, stylelint, commitlint).",
+    "main": "index.js",
+    "author": "lvdengming@foxmail.com",
+    "keywords": [
+        "husky",
+        "lint-staged",
+        "eslint",
+        "prettier",
+        "stylelint",
+        "commitlint"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "prepare": "husky install",
+        "eslint": "eslint . --ext .js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+        "stylelint": "stylelint \"**/*.{css,less,scss}\" --ignore-path .gitignore",
+        "format": "prettier . --write --ignore-unknown"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^19.3.0",
+        "@commitlint/config-conventional": "^19.2.2",
+        "@commitlint/format": "^19.3.0",
+        "@typescript-eslint/eslint-plugin": "^6.21.0",
+        "eslint": "^8.57.0",
+        "husky": "^9.0.11",
+        "lint-staged": "^15.2.2",
+        "prettier": "^3.2.5",
+        "stylelint": "^16.4.0",
+        "stylelint-config-standard": "^36.0.0",
+        "stylelint-config-standard-less": "^3.0.1",
+        "stylelint-config-standard-scss": "^13.1.0"
+    },
+    "lint-staged": {
+        "*.{js,jsx,cjs,mjs}": "eslint --cache --fix",
+        "*.{css,less,scss}": "stylelint --fix",
+        "*.{js,jsx,cjs,mjs,css,less,scss,md}": "prettier --write"
+    },
+    "stylelint": {
+        "extends": [
+            "stylelint-config-standard",
+            "stylelint-config-standard-less",
+            "stylelint-config-standard-scss"
+        ]
+    },
+    "prettier": {
+        "printWidth": 100,
+        "tabWidth": 4,
+        "trailingComma": "none"
+    }
+}
